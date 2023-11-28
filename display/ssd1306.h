@@ -862,7 +862,7 @@ public:
   // TODO: Don't update the display when we don't need to
   // and return false here so that we can go into lower power modes.
   void SB_IsOn(bool* on) override {
-     display_->SB_IsOn(on);
+    display_->SB_IsOn(on);
   }
 
   void SetScreenNow(Screen screen) {
