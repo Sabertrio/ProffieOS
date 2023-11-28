@@ -32,6 +32,30 @@ IMAGE_FILESET(destruct);
 */
 IMAGE_FILESET(lowbatt);
 
+/* START of MODIFICATION by Sabertrio for OLED Functionalities. [1/2] */
+/* Define additional images/animations for use in Sabertrio Proffie Preconfiguration. */
+IMAGE_FILESET(no_blade);
+IMAGE_FILESET(kyber);
+IMAGE_FILESET(length);
+IMAGE_FILESET(volumemenu);
+IMAGE_FILESET(brightness);
+IMAGE_FILESET(clashthreshold);
+IMAGE_FILESET(controlsettings);
+IMAGE_FILESET(settingsmenu);
+IMAGE_FILESET(clashdetectlvl);
+IMAGE_FILESET(forcepush);
+IMAGE_FILESET(forcepushlength);
+IMAGE_FILESET(lockupdelay);
+IMAGE_FILESET(maxclash);
+IMAGE_FILESET(powerlock);
+IMAGE_FILESET(stabignite);
+IMAGE_FILESET(swingignite);
+IMAGE_FILESET(swingonspeed);
+IMAGE_FILESET(thrustignite);
+IMAGE_FILESET(twistignite);
+IMAGE_FILESET(twistretract);
+/* END of MODIFICATION by Sabertrio for OLED Functionalities. [1/2] */
+
 enum Screen {
   SCREEN_UNSET,
   SCREEN_STARTUP,
@@ -571,6 +595,211 @@ public:
      case EFFECT_POSTOFF:
        ShowFileWithSoundLength(&IMG_pstoff, font_config.ProffieOSPstoffImageDuration);
        break;
+
+   /* START of MODIFICATION by Sabertrio for OLED Functionalities. [2/2] */
+   /* New cases to display additional images/animations for Sabertrio Proffie Preconfiguration. */
+  case EFFECT_NOBLADE:
+    looped_idle_ = Tristate::Unknown;
+    if (IMG_no_blade) {
+      ShowFile(&IMG_no_blade, font_config.ProffieOSFontImageDuration);
+    } else if (prop.current_preset_name()) {
+      SetMessage(prop.current_preset_name());
+      SetScreenNow(SCREEN_MESSAGE);
+    } else if (IMG_idle) {
+      ShowFile(&IMG_idle, 3600000.0);
+    }
+    return;
+
+    case EFFECT_KYBER:
+    looped_idle_ = Tristate::Unknown;
+    if (IMG_kyber) {
+      ShowFile(&IMG_kyber, font_config.ProffieOSFontImageDuration);
+    } else if (prop.current_preset_name()) {
+      SetMessage(prop.current_preset_name());
+      SetScreenNow(SCREEN_MESSAGE);
+    } else if (IMG_idle) {
+      ShowFile(&IMG_idle, 3600000.0);
+    }
+    return;
+
+    case EFFECT_VOLUMEMENU:
+    looped_idle_ = Tristate::Unknown;
+    if (IMG_volumemenu) {
+      ShowFile(&IMG_volumemenu, font_config.ProffieOSFontImageDuration);
+    } else if (prop.current_preset_name()) {
+      SetMessage(prop.current_preset_name());
+      SetScreenNow(SCREEN_MESSAGE);
+    } else if (IMG_idle) {
+      ShowFile(&IMG_idle, 3600000.0);
+    }
+    return;
+
+    case EFFECT_LENGTH:
+    looped_idle_ = Tristate::Unknown;
+    if (IMG_length) {
+      ShowFile(&IMG_length, font_config.ProffieOSFontImageDuration);
+    } else if (prop.current_preset_name()) {
+      SetMessage(prop.current_preset_name());
+      SetScreenNow(SCREEN_MESSAGE);
+    } else if (IMG_idle) {
+      ShowFile(&IMG_idle, 3600000.0);
+    }
+    return;
+
+    case EFFECT_CLEARSCREEN:
+    looped_idle_ = Tristate::Unknown;
+    if (IMG_on) {
+      ShowFile(&IMG_on, font_config.ProffieOSOnImageDuration);
+    } else {
+      ShowFile(&IMG_idle, 3600000.0);
+    }
+    return;
+
+    case EFFECT_BRIGHTNESS:
+    looped_idle_ = Tristate::Unknown;
+    if (IMG_on) {
+      ShowFile(&IMG_brightness, font_config.ProffieOSOnImageDuration);
+    } else {
+      ShowFile(&IMG_idle, 3600000.0);
+    }
+    return;
+
+    case EFFECT_CLASHTHRESHOLD:
+    looped_idle_ = Tristate::Unknown;
+    if (IMG_on) {
+      ShowFile(&IMG_clashthreshold, font_config.ProffieOSOnImageDuration);
+    } else {
+      ShowFile(&IMG_idle, 3600000.0);
+    }
+    return;
+
+    case EFFECT_CONTROLSETTINGS:
+    looped_idle_ = Tristate::Unknown;
+    if (IMG_on) {
+      ShowFile(&IMG_controlsettings, font_config.ProffieOSOnImageDuration);
+    } else {
+      ShowFile(&IMG_idle, 3600000.0);
+    }
+    return;
+
+    case EFFECT_SETTINGSMENU:
+    looped_idle_ = Tristate::Unknown;
+    if (IMG_on) {
+      ShowFile(&IMG_settingsmenu, font_config.ProffieOSOnImageDuration);
+    } else {
+      ShowFile(&IMG_idle, 3600000.0);
+    }
+    return;
+
+    case EFFECT_CLASHDETECTLVL:
+    looped_idle_ = Tristate::Unknown;
+    if (IMG_on) {
+      ShowFile(&IMG_clashdetectlvl, font_config.ProffieOSOnImageDuration);
+    } else {
+      ShowFile(&IMG_idle, 3600000.0);
+    }
+    return;
+
+    case EFFECT_FORCEPUSH:
+    looped_idle_ = Tristate::Unknown;
+    if(IMG_on) {
+      ShowFile(&IMG_forcepush, font_config.ProffieOSOnImageDuration);
+    } else {
+      ShowFile(&IMG_idle, 3600000.0);
+    }
+    return;
+
+  case EFFECT_FORCEPUSHLENGTH:
+    looped_idle_ = Tristate::Unknown;
+    if (IMG_on) {
+      ShowFile(&IMG_forcepushlength, font_config.ProffieOSOnImageDuration);
+    } else {
+      ShowFile(&IMG_idle, 3600000.0);
+    }
+    return;
+
+  case EFFECT_LOCKUPDELAY:
+    looped_idle_ = Tristate::Unknown;
+    if (IMG_on) {
+      ShowFile(&IMG_lockupdelay, font_config.ProffieOSOnImageDuration);
+    } else {
+      ShowFile(&IMG_idle, 3600000.0);
+    }
+    return;
+
+  case EFFECT_MAXCLASH:
+    looped_idle_ = Tristate::Unknown;
+    if(IMG_on) {
+      ShowFile(&IMG_maxclash, font_config.ProffieOSOnImageDuration);
+    } else {
+      ShowFile(&IMG_idle, 3600000.0);
+    }
+    return;
+
+  case EFFECT_POWERLOCK:
+    looped_idle_ = Tristate::Unknown;
+    if (IMG_on) {
+      ShowFile(&IMG_powerlock, font_config.ProffieOSOnImageDuration);
+    } else {
+      ShowFile(&IMG_idle, 3600000.0);
+    }
+    return;
+
+  case EFFECT_STABIGNITE:
+    looped_idle_ = Tristate::Unknown;
+    if (IMG_on) {
+      ShowFile(&IMG_stabignite, font_config.ProffieOSOnImageDuration);
+    } else {
+      ShowFile(&IMG_idle, 3600000.0);
+    }
+    return;
+
+   case EFFECT_SWINGIGNITE:
+    looped_idle_ = Tristate::Unknown;
+    if (IMG_on) {
+      ShowFile(&IMG_swingignite, font_config.ProffieOSOnImageDuration);
+    } else {
+      ShowFile(&IMG_idle, 3600000.0);
+    }
+    return;
+
+    case EFFECT_SWINGONSPEED:
+    looped_idle_ = Tristate::Unknown;
+    if (IMG_on) {
+      ShowFile(&IMG_swingonspeed, font_config.ProffieOSOnImageDuration);
+    } else {
+      ShowFile(&IMG_idle, 3600000.0);
+    }
+    return;
+
+    case EFFECT_THRUSTIGNITE:
+    looped_idle_ = Tristate::Unknown;
+    if (IMG_on) {
+      ShowFile(&IMG_thrustignite, font_config.ProffieOSOnImageDuration);
+    } else {
+      ShowFile(&IMG_idle, 3600000.0);
+    }
+    return;
+
+    case EFFECT_TWISTIGNITE:
+    looped_idle_ = Tristate::Unknown;
+    if (IMG_on) {
+      ShowFile(&IMG_twistignite, font_config.ProffieOSOnImageDuration);
+    } else {
+      ShowFile(&IMG_idle, 3600000.0);
+    }
+    return;
+
+    case EFFECT_TWISTRETRACT:
+    looped_idle_ = Tristate::Unknown;
+    if (IMG_on) {
+      ShowFile(&IMG_twistretract, font_config.ProffieOSOnImageDuration);
+    } else {
+      ShowFile(&IMG_idle, 3600000.0);
+    }
+    return;
+	/* END of MODIFICATION by Sabertrio for OLED Functionalities. [2/2] */
+
 /* To-Do, possibly differently
    #ifdef OLED_USE_BLASTER_IMAGES
    case EFFECT_RELOAD:
@@ -593,6 +822,7 @@ public:
    break;
    #endif
 */
+
        break;
      default: break;
    }
@@ -629,8 +859,10 @@ public:
     }
   }
 
+  // TODO: Don't update the display when we don't need to
+  // and return false here so that we can go into lower power modes.
   void SB_IsOn(bool* on) override {
-    display_->SB_IsOn(on);
+     display_->SB_IsOn(on);
   }
 
   void SetScreenNow(Screen screen) {
@@ -990,6 +1222,8 @@ public:
   }
 
   void Loop() override {
+    if (millis() > oled_delay){
+
 #ifdef USB_CLASS_MSC
     static bool last_connected = false;
     bool connected = USBD_Configured();
@@ -1139,7 +1373,7 @@ public:
 
     STATE_MACHINE_END();
   }
-
+}
 #ifdef PROFFIEBOARD
   static constexpr uint8_t transactions[] = {
     COLUMNADDR,
@@ -1195,7 +1429,11 @@ private:
   LoopCounter loop_counter_;
   POWER_PIN power_;
   bool on_ = false;
+
+  uint32_t oled_delay = 5000;
+
 };
+
 
 #ifdef PROFFIEBOARD
 template<int WIDTH, class col_t, class POWER_PIN>

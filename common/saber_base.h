@@ -102,6 +102,30 @@ extern SaberBase* saberbases;
     DEFINE_EFFECT(ERROR_IN_FONT_DIRECTORY)      \
     DEFINE_EFFECT(ERROR_IN_BLADE_ARRAY)         \
     DEFINE_EFFECT(FONT_DIRECTORY_NOT_FOUND)     \
+    /* START of MODIFICATION by Sabertrio for OLED Functionalities. [1/2] */			\
+	/* Allows OLED to display additional saber and Settings Menu states for Sabertrio Proffie Preconfiguration. */			\
+    DEFINE_EFFECT(NOBLADE)                      \
+    DEFINE_EFFECT(KYBER)                        \
+    DEFINE_EFFECT(VOLUMEMENU)                   \
+    DEFINE_EFFECT(LENGTH)                       \
+    DEFINE_EFFECT(BRIGHTNESS)                   \
+    DEFINE_EFFECT(CLASHTHRESHOLD)               \
+    DEFINE_EFFECT(CONTROLSETTINGS)              \
+    DEFINE_EFFECT(SETTINGSMENU)                 \
+    DEFINE_EFFECT(CLASHDETECTLVL)               \
+    DEFINE_EFFECT(FORCEPUSH)                    \
+    DEFINE_EFFECT(FORCEPUSHLENGTH)              \
+    DEFINE_EFFECT(LOCKUPDELAY)                  \
+    DEFINE_EFFECT(MAXCLASH)                     \
+    DEFINE_EFFECT(POWERLOCK)                    \
+    DEFINE_EFFECT(STABIGNITE)                   \
+    DEFINE_EFFECT(SWINGIGNITE)                  \
+    DEFINE_EFFECT(SWINGONSPEED)                 \
+    DEFINE_EFFECT(THRUSTIGNITE)                 \
+    DEFINE_EFFECT(TWISTIGNITE)                  \
+    DEFINE_EFFECT(TWISTRETRACT)                 \
+    DEFINE_EFFECT(CLEARSCREEN)                  \
+	/* END of MODIFICATION by Sabertrio for OLED Functionalities. [1/2] */			\
 
 
 #define DEFINE_EFFECT(X) EFFECT_##X,
@@ -269,6 +293,30 @@ public:                                                         \
   static void DoChange() { DoEffect(EFFECT_CHANGE, 0); }
   static void DoNewFont() { DoEffect(EFFECT_NEWFONT, 0); }
   static void DoLowBatt() { DoEffect(EFFECT_LOW_BATTERY, 0); }
+
+  /* START of MODIFICATION by Sabertrio for OLED Functionalities. [2/2] */
+  /* Functions to call & display additional saber and Settings Menu states for Sabertrio Proffie Preconfiguration. */
+  static void DoNoBlade() { DoEffect(EFFECT_NOBLADE, 0); }
+  static void DoKyber() { DoEffect(EFFECT_KYBER, 0); }
+  static void DoVolMenu() { DoEffect(EFFECT_VOLUMEMENU, 0); }
+  static void DoBladeLength() { DoEffect(EFFECT_LENGTH, 0); }
+  static void DoBrightness() { DoEffect(EFFECT_BRIGHTNESS, 0); }
+  static void DoClashThreshold() { DoEffect(EFFECT_CLASHTHRESHOLD, 0); }
+  static void DoControlSettings() { DoEffect(EFFECT_CONTROLSETTINGS, 0); }
+  static void DoSettingsMenu() { DoEffect(EFFECT_SETTINGSMENU, 0); }
+  static void DoClashDetectLvl() { DoEffect(EFFECT_CLASHDETECTLVL, 0); }
+  static void DoForcePush() { DoEffect(EFFECT_FORCEPUSH, 0); }
+  static void DoForcePushLength() { DoEffect(EFFECT_FORCEPUSHLENGTH, 0); }
+  static void DoLockupDelay() { DoEffect(EFFECT_LOCKUPDELAY, 0); }
+  static void DoMaxClash() { DoEffect(EFFECT_MAXCLASH, 0); }
+  static void DoPowerLock() { DoEffect(EFFECT_POWERLOCK, 0); }
+  static void DoStabIgnite() { DoEffect(EFFECT_STABIGNITE, 0); }
+  static void DoSwingIgnite() { DoEffect(EFFECT_SWINGIGNITE, 0); }
+  static void DoSwingOnSpeed() { DoEffect(EFFECT_SWINGONSPEED, 0); }
+  static void DoThrustIgnite() { DoEffect(EFFECT_THRUSTIGNITE, 0); }
+  static void DoTwistIgnite() { DoEffect(EFFECT_TWISTIGNITE, 0); }
+  static void DoTwistRetract() { DoEffect(EFFECT_TWISTRETRACT, 0); }
+  /* END of MODIFICATION by Sabertrio for OLED Functionalities. [2/2] */
 
   static float clash_strength_;
 
