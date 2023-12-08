@@ -4274,13 +4274,13 @@ SaberFett263Buttons() : PropBase() {}
         return true;
 
       case EVENTID(BUTTON_POWER, EVENT_PRESSED, MODE_ON):
-        if(menu_) return false;
+        if(menu_) return true;
         if(CheckShowColorCC()) return true;
-        return true;
+        return false;
 
       case EVENTID(BUTTON_POWER, EVENT_RELEASED, MODE_ON):
 #ifndef DISABLE_COLOR_CHANGE
-        if (SaberBase::GetColorChangeMode() != SaberBase::COLOR_CHANGE_MODE_NONE) {
+        if (CheckShowColorCC()) {
           ResetColors();
           sound_library_.SayRevert();
 
@@ -4368,7 +4368,7 @@ SaberFett263Buttons() : PropBase() {}
 
       case EVENTID(BUTTON_POWER, EVENT_HELD_MEDIUM, MODE_ON):
 #ifndef DISABLE_COLOR_CHANGE
-        if (SaberBase::GetColorChangeMode() != SaberBase::COLOR_CHANGE_MODE_NONE) {
+        if (CheckShowColorCC()) {
           ResetColors();
           sound_library_.SayRevert();
           return true;
@@ -4485,11 +4485,12 @@ SaberFett263Buttons() : PropBase() {}
         return false;
 
       case EVENTID(BUTTON_POWER, EVENT_CLICK_LONG, MODE_ON):
-        if (CancelShowColor()) return true;
-        if (menu_) {
+        if (CancelShowColor()) return false;
+        if (in_menu_) {
           MenuDial(-1);
           return true;
         }
+        return false;
 
 #if !defined(FETT263_DISABLE_MULTI_BLAST) && !defined(FETT263_DISABLE_MULTI_BLAST_TOGGLE)
       case EVENTID(BUTTON_AUX, EVENT_CLICK_LONG, MODE_ON):
