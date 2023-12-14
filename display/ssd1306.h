@@ -1430,7 +1430,7 @@ private:
   POWER_PIN power_;
   bool on_ = false;
 
-  uint32_t oled_delay = 5000;
+  uint32_t oled_delay = 8000;
 
 };
 
