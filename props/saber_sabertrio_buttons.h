@@ -5019,6 +5019,7 @@ SaberFett263Buttons() : PropBase() {}
       case EVENTID(BUTTON_NONE, EVENT_SWING, MODE_OFF):
         if (!saved_gesture_control.gestureon) return true;
         if (!saved_gesture_control.swingon) return true;
+        if (preset_menu_) return false;
         if (!menu_) {
 #ifdef FETT263_DUAL_MODE_SOUND
           SelectIgnitionSound();
@@ -5043,6 +5044,7 @@ SaberFett263Buttons() : PropBase() {}
       case EVENTID(BUTTON_NONE, EVENT_SWING, MODE_OFF):
         if (!saved_gesture_control.gestureon) return true;
         if (!saved_gesture_control.swingon) return true;
+        if (preset_menu_) return false;
         if (!menu_) {
 #ifdef FETT263_DUAL_MODE_SOUND
           SelectIgnitionSound();
@@ -5107,6 +5109,7 @@ SaberFett263Buttons() : PropBase() {}
       case EVENTID(BUTTON_NONE, EVENT_TWIST, MODE_OFF):
         if (!saved_gesture_control.gestureon) return true;
         if (!saved_gesture_control.twiston) return true;
+        if (preset_menu_) return false;
         // Delay twist events to prevent false trigger from over twisting
         if (!menu_) {
 #ifdef FETT263_DUAL_MODE_SOUND
@@ -5141,6 +5144,7 @@ SaberFett263Buttons() : PropBase() {}
       case EVENTID(BUTTON_NONE, EVENT_TWIST, MODE_OFF):
         if (!saved_gesture_control.gestureon) return true;
         if (!saved_gesture_control.twiston) return true;
+        if (preset_menu_) return false;
         // Delay twist events to prevent false trigger from over twisting
         if (!menu_) {
 #ifdef FETT263_DUAL_MODE_SOUND
@@ -5168,6 +5172,7 @@ SaberFett263Buttons() : PropBase() {}
       case EVENTID(BUTTON_NONE, EVENT_STAB, MODE_OFF):
         if (!saved_gesture_control.gestureon) return true;
         if (!saved_gesture_control.stabon) return true;
+        if (preset_menu_) return false;
         if (!menu_) {
 #ifdef FETT263_DUAL_MODE_SOUND
           SelectIgnitionSound();
@@ -5192,6 +5197,7 @@ SaberFett263Buttons() : PropBase() {}
       case EVENTID(BUTTON_NONE, EVENT_STAB, MODE_OFF):
         if (!saved_gesture_control.gestureon) return true;
         if (!saved_gesture_control.stabon) return true;
+        if (preset_menu_) return false;
         if (!menu_) {
 #ifdef FETT263_DUAL_MODE_SOUND
           SelectIgnitionSound();
@@ -5211,6 +5217,7 @@ SaberFett263Buttons() : PropBase() {}
       case EVENTID(BUTTON_NONE, EVENT_THRUST, MODE_OFF):
         if (!saved_gesture_control.gestureon) return true;
         if (!saved_gesture_control.thruston) return true;
+        if (preset_menu_) return false;
         if (!menu_) {
 #ifdef FETT263_DUAL_MODE_SOUND
           SelectIgnitionSound();
@@ -5235,6 +5242,7 @@ SaberFett263Buttons() : PropBase() {}
       case EVENTID(BUTTON_NONE, EVENT_THRUST, MODE_OFF):
         if (!saved_gesture_control.gestureon) return true;
         if (!saved_gesture_control.thruston) return true;
+        if (preset_menu_) return false;
         if (!menu_) {
 #ifdef FETT263_DUAL_MODE_SOUND
           SelectIgnitionSound();
